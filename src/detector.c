@@ -295,7 +295,7 @@ void train_detector(char *datacfg, char *cfgfile, char *weightfile, int *gpus, i
             if (ngpus != 1) sync_nets(nets, ngpus, 0);
 #endif
             char buff[256];
-            sprintf(buff, "../drive/My Drive/%s/%s_%d.weights", backup_directory, base, i);
+            sprintf(buff, "../drive/My Drive/%s/%s_%d_%2.2f%%.weights", backup_directory, base, i, mean_average_precision * 100);
             save_weights(net, buff);
         }
         free_data(train);
